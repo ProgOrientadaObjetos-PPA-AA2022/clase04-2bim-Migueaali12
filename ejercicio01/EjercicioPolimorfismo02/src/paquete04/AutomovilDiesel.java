@@ -10,8 +10,9 @@ public class AutomovilDiesel extends Automovil {
     private double costoLitro;
     private double descuentoLitros;
 
-    public AutomovilDiesel(int numLitros, double costoLitro, double descuentoLitros, String nombrePropietario, String placa, double valorCancelar) {
-        super(nombrePropietario, placa, valorCancelar);
+    public AutomovilDiesel(int numLitros, double costoLitro, 
+            double descuentoLitros, String nombrePropietario, String placa) {
+        super(nombrePropietario, placa);
         this.numLitros = numLitros;
         this.costoLitro = costoLitro;
         this.descuentoLitros = descuentoLitros;
@@ -46,5 +47,23 @@ public class AutomovilDiesel extends Automovil {
         valorCancelar = (costoLitro * descuentoLitros);
         
     }
+    
+    @Override
+    public String toString() {
+        
+        String cadena;
+        
+        cadena = String.format("Automóvil Diesel\n"
+                + "%s"
+                + "Numero de litros: %d\n"
+                + "Costo de litro: %.2f\n"
+                + "descuento: %.2f\n "
+                + "Valor Final: %.2f\n"                
+                ,super.toString(), numLitros, costoLitro, descuentoLitros,
+                valorCancelar);
+        
+        return cadena;
+    }
+    
     
 }

@@ -8,14 +8,14 @@ public class AutomovilGasolina extends Automovil {
     private int numGalones;
     private double costoGalon;
     private double iva;
-    private double valorTotal;
 
-    public AutomovilGasolina(int numeroDeGalonesMax, double costoGalon, double iva, double valorTotal, String nombrePropietario, String placa, double valorCancelar) {
-        super(nombrePropietario, placa, valorCancelar);
+    public AutomovilGasolina(int numeroDeGalonesMax, double costoGalon, 
+            String nombrePropietario, String placa) {
+        super(nombrePropietario, placa);
         this.numGalones = numeroDeGalonesMax;
         this.costoGalon = costoGalon;
         this.iva = 10;
-        this.valorTotal = valorTotal;
+
     }
 
     public int getNumGalones() {
@@ -42,14 +42,6 @@ public class AutomovilGasolina extends Automovil {
         this.iva = 10;
     }
 
-    public double getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
-    }     
-
     @Override
     public void calcularValorFinal(){
         valorCancelar = (costoGalon * numGalones) + (((costoGalon * numGalones) * iva) / 100);
@@ -61,12 +53,13 @@ public class AutomovilGasolina extends Automovil {
         
         String cadena;
         
-        cadena = String.format("%s\n"
+        cadena = String.format("Automóvil Gasolina\n"
+                + "%s"
                 + "Numero de galones: %d\n"
                 + "Costo de galon: %.2f\n"
-                + "iva: %.2f\n"
-                + "Valor total: %.2f\n"
-                ,super.toString(), numGalones, costoGalon, iva, valorTotal);
+                + "iva: %.2f\n "
+                + "Valor Final: %.2f\n"                
+                ,super.toString(), numGalones, costoGalon, iva, valorCancelar);
         
         return cadena;
     }

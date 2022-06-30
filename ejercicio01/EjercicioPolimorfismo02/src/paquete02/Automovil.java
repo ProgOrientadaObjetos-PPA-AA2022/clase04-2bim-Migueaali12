@@ -8,10 +8,10 @@ public abstract class Automovil {
     protected String placa;
     protected double valorCancelar;
 
-    public Automovil(String nombrePropietario, String placa, double valorCancelar) {
+    public Automovil(String nombrePropietario, String placa) {
         this.nombrePropietario = nombrePropietario;
         this.placa = placa;
-        this.valorCancelar = valorCancelar;
+        
     }
     
     public void setNombrePropietario(String nombrePropietario) {
@@ -22,9 +22,6 @@ public abstract class Automovil {
         this.placa = placa;
     }
 
-    public void setValorCancelar(double valorCancelar) {
-        this.valorCancelar = valorCancelar;
-    }
 
     public String getNombrePropietario() {
         return nombrePropietario;
@@ -34,11 +31,12 @@ public abstract class Automovil {
         return placa;
     }
 
+    
+    public abstract void calcularValorFinal();
+    
     public double getValorCancelar() {
         return valorCancelar;
     }
-    
-    public abstract void calcularValorFinal();
     
     @Override
     public String toString() {
